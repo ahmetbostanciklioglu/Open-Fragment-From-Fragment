@@ -2,8 +2,8 @@ package com.ahmetbostanciklioglu.passfragmettofragment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import com.ahmetbostanciklioglu.passfragmettofragment.fragments.HomeFragment
+import com.ahmetbostanciklioglu.passfragmettofragment.fragments.replace
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,14 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val homeFragment = HomeFragment()
-        val fragment: Fragment? =
-            supportFragmentManager.findFragmentByTag(HomeFragment::class.java.simpleName)
 
-        if (fragment !is HomeFragment) {
-            supportFragmentManager.beginTransaction()
-                .add(R.id.container_fragment, homeFragment, HomeFragment::class.java.simpleName)
-                .commit()
-        }
+        replace(HomeFragment())
     }
 }
